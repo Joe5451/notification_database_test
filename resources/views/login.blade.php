@@ -10,11 +10,11 @@
     <form action="{{ route('login') }}" method="post">
         <div>
             Email:
-            <input type="email" name="email">
+            <input type="email" name="email" placeholder="test01@example.com" value="test01@example.com">
         </div>
         <div>
             Password:
-            <input type="password" name="password">
+            <input type="password" name="password" placeholder="test123" value="test123">
         </div>
 
         @csrf

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ShowNotification;
-// use App\Http\Controllers\SendAndShowNotification;
+use App\Http\Controllers\MarkMessage;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,6 @@ use App\Http\Controllers\ShowNotification;
 |
 */
 
-// Route::get('/', SendAndShowNotification::class);
 Route::get('/', function () {
     return redirect('/login');
 });
@@ -28,8 +27,7 @@ Route::get('/login', function () {
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::middleware('auth')->get('/admin', ShowNotification::class);
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::middleware('auth')->group(function() {
+    Route::get('/admin', ShowNotification::class);
+    Route::post('/mark_message', MarkMessage::class)->name('markNotification');
+});
