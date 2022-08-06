@@ -25,8 +25,6 @@ class LoginController extends Controller
                 $user = Auth::user();
                 Auth::login($user);
 
-                // $message = date('Y-m-d H:i:s') . ' 登入';
-
                 Notification::send($user, new MessageNotification($user));
 
                 return redirect('/admin');

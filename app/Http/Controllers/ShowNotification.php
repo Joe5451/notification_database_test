@@ -21,7 +21,6 @@ class ShowNotification extends Controller
     public function __invoke(Request $request)
     {
         $user = Auth::user();
-        // Notification::send($user, new MessageNotification('測試'));
 
         $notifications = $user->unreadNotifications;
 
