@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'test01',
             'email' => 'test01@example.com',
-            'password' => bcrypt('test123')
+            'password' => bcrypt('test123') // 或者 Hash::make('test123')，作用是一樣的
         ]);
 
         User::create([
